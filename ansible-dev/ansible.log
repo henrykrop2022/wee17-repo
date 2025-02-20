@@ -1,0 +1,39 @@
+2025-02-20 13:22:11,971 p=6361 u=ec2-user n=ansible | 54.173.111.9 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python3.7"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+2025-02-20 13:22:12,105 p=6361 u=ec2-user n=ansible | 18.232.122.33 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python3"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+2025-02-20 13:22:38,049 p=6444 u=ec2-user n=ansible | PLAY [all] ***********************************************************************
+2025-02-20 13:22:38,062 p=6444 u=ec2-user n=ansible | TASK [Gathering Facts] ***********************************************************
+2025-02-20 13:22:39,828 p=6444 u=ec2-user n=ansible | ok: [54.173.111.9]
+2025-02-20 13:22:40,620 p=6444 u=ec2-user n=ansible | ok: [18.232.122.33]
+2025-02-20 13:22:40,633 p=6444 u=ec2-user n=ansible | TASK [create a file] *************************************************************
+2025-02-20 13:22:41,262 p=6444 u=ec2-user n=ansible | changed: [54.173.111.9]
+2025-02-20 13:22:41,271 p=6444 u=ec2-user n=ansible | changed: [18.232.122.33]
+2025-02-20 13:22:41,280 p=6444 u=ec2-user n=ansible | TASK [create directory] **********************************************************
+2025-02-20 13:22:41,688 p=6444 u=ec2-user n=ansible | ok: [18.232.122.33]
+2025-02-20 13:22:41,718 p=6444 u=ec2-user n=ansible | ok: [54.173.111.9]
+2025-02-20 13:22:41,725 p=6444 u=ec2-user n=ansible | TASK [create group Admin] ********************************************************
+2025-02-20 13:22:42,305 p=6444 u=ec2-user n=ansible | ok: [54.173.111.9]
+2025-02-20 13:22:42,311 p=6444 u=ec2-user n=ansible | ok: [18.232.122.33]
+2025-02-20 13:22:42,319 p=6444 u=ec2-user n=ansible | TASK [create user Henry] *********************************************************
+2025-02-20 13:22:42,345 p=6444 u=ec2-user n=ansible | skipping: [54.173.111.9]
+2025-02-20 13:22:43,000 p=6444 u=ec2-user n=ansible | ok: [18.232.122.33]
+2025-02-20 13:22:43,013 p=6444 u=ec2-user n=ansible | TASK [Check uptime] **************************************************************
+2025-02-20 13:22:43,612 p=6444 u=ec2-user n=ansible | changed: [18.232.122.33]
+2025-02-20 13:22:43,736 p=6444 u=ec2-user n=ansible | changed: [54.173.111.9]
+2025-02-20 13:22:43,744 p=6444 u=ec2-user n=ansible | TASK [check the date] ************************************************************
+2025-02-20 13:22:44,158 p=6444 u=ec2-user n=ansible | changed: [18.232.122.33]
+2025-02-20 13:22:44,248 p=6444 u=ec2-user n=ansible | changed: [54.173.111.9]
+2025-02-20 13:22:44,265 p=6444 u=ec2-user n=ansible | PLAY RECAP ***********************************************************************
+2025-02-20 13:22:44,265 p=6444 u=ec2-user n=ansible | 18.232.122.33              : ok=7    changed=3    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2025-02-20 13:22:44,265 p=6444 u=ec2-user n=ansible | 54.173.111.9               : ok=6    changed=3    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   

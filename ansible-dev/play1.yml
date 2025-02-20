@@ -1,0 +1,39 @@
+---
+- hosts: all
+  become: True
+  #become_user: root
+  ignore_errors: 1
+  gather_facts: yes
+  tasks:
+      - name: create a file
+        file:
+          path: /tmp/playbookfile
+          mode: '0755'
+          state: touch
+        tags:
+          - file
+      - name: create directory
+        file:
+          path: /tmp/dir
+          mode:  '0700'
+          state: directory
+        tags:
+          - cmd
+      - name: create group Admin
+        group:
+          name: admin
+          state: present
+        tags:
+          - group
+      - name: create user Henry
+        user:
+          name: henry
+          comment: Henry Admin
+          uid: 10214
+          group: admin
+          shell: /bin/bash
+        when: ansible_os_family == "Debian" or ansible_processor_nproc > 2
+      - name: Check uptime
+        command: uptime
+      - name: check the date
+        shell: cat /etc/passwd | grep henry

@@ -1,0 +1,46 @@
+---
+- hosts: ws
+  become: yes
+  tasks:
+    - name: Ensure /resume directory exists
+      file:
+        path: /tmp
+        state: directory
+        mode: '1777'
+
+    - name: Install required packages
+      yum:
+        name: "{{ item }}"
+        state: present
+        update_cache: yes
+      loop:
+        - unzip
+        - wget
+        - httpd
+
+    - name: Download Artifacts
+      get_url:
+        url: https://github.com/kserge2001/resume/archive/refs/heads/main.zip
+        dest: /tmp/main.zip
+
+    - name: Unarchive zip file
+      unarchive:
+        src: /tmp/main.zip
+        dest: /tmp
+        remote_src: yes
+  
+    - name: Copy artifacts to html folder
+      copy:
+        remote_src: yes
+        src: /tmp/resume-main/
+        dest: /var/www/html
+        owner: apache
+        group: apache
+        mode: '0755'
+      
+
+    - name: Start and enable httpd service
+      systemd:
+        name: httpd
+        state: started
+        enabled: yes
