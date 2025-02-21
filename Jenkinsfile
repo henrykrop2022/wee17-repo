@@ -11,5 +11,12 @@ pipeline {
                 git branch: 'main', url: 'https://github.com/henrykrop2022/wee17-repo.git'
             }
         }
+        stage('Sync Playbook to Ansible Master') {
+            steps {
+                sh """
+                    rsync -avz -e "ssh -o StrictHostKeyChecking=no" * ec2-user@ip-172-31-33-45:${WORK_DIR}/
+                """
+            }
+        }
     }
 }
