@@ -23,7 +23,7 @@ pipeline {
                 sh """
                     ssh ec2-user@ip-172-31-33-45 '
                     cd ${WORK_DIR} &&
-                    ansible-playbook -i  *.yml '
+                    ansible-playbook -i  play4.yml '
                 """
             }
         }
