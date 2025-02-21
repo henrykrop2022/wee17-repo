@@ -1,0 +1,17 @@
+pipeline {
+    agent any
+
+    environment {
+        REPO_URL = 'https://github.com/henrykrop2022/wee17-repo.git' // Update with your repo URL
+        WORK_DIR = '/home/ec2-user/cicd-pipeline' // Directory on the Ansible master
+    }
+    stages {
+        stage('Clone Ansible Playbook') {
+            steps {
+                git branch: 'main', url: 'https://github.com/henrykrop2022/wee17-repo.git'
+            }
+        }
+    }
+}
+
+
