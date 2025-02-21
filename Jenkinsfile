@@ -22,8 +22,8 @@ pipeline {
             steps {
                 sh """
                     ssh ec2-user@ip-172-31-33-45 '
-                    cd ${WORK_DIR} &&
-                    ansible-playbook -i  play4.yml '
+                    cd ${WORK_DIR}/ansible-dev &&
+                    ansible-playbook -i play4.yml '
                 """
             }
         }
