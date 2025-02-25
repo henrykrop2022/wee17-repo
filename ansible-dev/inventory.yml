@@ -1,0 +1,14 @@
+[ws]
+ip-172-31-47-232.ec2.internal
+
+[db]
+ip-172-31-20-255.ec2.internal
+
+[ws:vars]
+ansible_ssh_private_key_file=~/ansible-key.pem
+ansible_user= ec2-user
+
+[db:vars]
+ansible_ssh_private_key_file=~/ansible-key.pem
+ansible_user= ubuntu
+
